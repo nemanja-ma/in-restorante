@@ -1,6 +1,8 @@
 import React from 'react';
-import { Card, CardImg, CardText, CardBody, CardTitle, BreadcrumbItem, Breadcrumb } from 'reactstrap';
+import { Card, CardImg, CardText, CardBody, CardTitle, BreadcrumbItem, Breadcrumb, Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import CommentForm from './CommentFormComponent';
+
 
 function RenderDish({dish}) {
     return(
@@ -25,12 +27,13 @@ function RenderComments({comments}) {
                     {comments.map((comment) => {
                         return(
                             <li key={comment.id}>
-                                <p>{comment.comment}</p>
+                                <p className="authorcoment">{comment.comment}</p>
                                 <p>-- {comment.author} , {comment.date}</p>
                             </li>
                         );
                     })}
                 </ul>
+                <CommentForm/>
             </div>
         );
     else return(

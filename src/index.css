@@ -71,6 +71,7 @@ html {
   position: absolute;
   bottom: 0px; }
 
+/*
 .modal-header {
   background-color: #512DA8; }
   .modal-header h4 {
@@ -80,3 +81,7 @@ html {
 
 .modal-body {
   background-color: #D1C4E9; }
+*/
+  .authorcoment {
+    margin-bottom: 0.2rem;
+  }
