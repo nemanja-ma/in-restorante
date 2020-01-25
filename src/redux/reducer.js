@@ -1,9 +1,13 @@
 import { DISHES } from '../shared/dishes';
 import { LEADERS } from '../shared/leaders';
+import { COMMENTS } from '../shared/comments';
+import { PROMOTIONS } from '../shared/promotions'
 
 export const initialState = {
     dishes: DISHES,
-    leaders: LEADERS
+    leaders: LEADERS,
+    comments: COMMENTS,
+    promotions: PROMOTIONS
 };
 
 export const Reducer = (state = initialState, action) => {
