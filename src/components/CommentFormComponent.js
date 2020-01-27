@@ -3,6 +3,7 @@ import { Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Label, Input, R
 import { NavLink } from 'react-router-dom';
 import { Control, LocalForm, Errors} from 'react-redux-form';
 
+
 const required = (val) => val && val.length;
 const maxLenght = (len) => (val) => !(val) || (val.length <= len);
 const minLenght = (len) => (val) => (val) && (val.length >= len);
@@ -24,11 +25,15 @@ const minLenght = (len) => (val) => (val) && (val.length >= len);
     }
     
     handleSubmit(values) {
-        console.log("current state is: " + JSON.stringify(values));
-        alert("current state is: " + JSON.stringify(values));
+        this.toggleModal();
+        this.props.addComment(this.props.dishId, values.rating, values.author, values.comment);
+        console.log(this.props.dishId, values.rating, values.author, values.comment);
+        
+        
     }
-
+    
     render() {
+        
         return (
             <>
                 <div className="col-12 col-md-8">
@@ -43,7 +48,7 @@ const minLenght = (len) => (val) => (val) && (val.length >= len);
                             <Row className="form-group">
                                 <Col md={12}>
                                     <Label htmlFor="rating">Rating</Label>
-                                    <Control.select  model=".rating" className="form-control">
+                                    <Control.select  model=".rating" id="rating" className="form-control">
                                         <option>1</option> 
                                         <option>2</option> 
                                         <option>3</option> 
@@ -54,16 +59,16 @@ const minLenght = (len) => (val) => (val) && (val.length >= len);
                                 </Col>
                             </Row>
                             <Row className="form-group">
-                                <Label htmlFor="name" md={12}>Your Name</Label>
+                                <Label htmlFor="author" md={12}>Your Name</Label>
                                 <Col md={12}>
-                                    <Control.text className="form-control" model=".name" id="name" name="name" placeholder="Your Name" validators={{required, minLenght: minLenght(3), maxLenght: maxLenght(15)}}/>
-                                    <Errors className="text-danger" model=".name" show="touched" messages={{ required: "Required", minLenght: "must be greater than 2 caracters", maxLenght: "must be less than 15 caracters"}}/>
+                                    <Control.text className="form-control" model=".author" id="author" name="author" placeholder="Your Name" validators={{required, minLenght: minLenght(3), maxLenght: maxLenght(15)}}/>
+                                    <Errors className="text-danger" model=".author" show="touched" messages={{ required: "Required", minLenght: "must be greater than 2 caracters", maxLenght: "must be less than 15 caracters"}}/>
                                 </Col>
                             </Row>
                             <Row className="form-group">
-                                <Label htmlFor="message" md={12}>Comment</Label>
+                                <Label htmlFor="comment" md={12}>Comment</Label>
                                 <Col md={12}>
-                                    <Control.textarea model=".message" className="form-control" id="message" name="message" rows="8"/>
+                                    <Control.textarea model=".comment" className="form-control" id="comment" name="comment" rows="8"/>
                                 </Col>
                             </Row>
                             <Row className="form-group">
