@@ -1,5 +1,4 @@
-import React, {Component} from 'react';
-import { CardFooter } from 'reactstrap';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 function Footer(props) {

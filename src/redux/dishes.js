@@ -1,6 +1,4 @@
 import * as ActionTypes from './ActionTypes';
-import { ListGroupItem } from 'reactstrap';
-
 
 export const Dishes = (state = {
     isLoading: true,
